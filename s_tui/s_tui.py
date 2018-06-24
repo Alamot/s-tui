@@ -67,6 +67,7 @@ from s_tui.Sources.UtilSource import UtilSource as UtilSource
 from s_tui.Sources.FreqSource import FreqSource as FreqSource
 from s_tui.Sources.TemperatureSource import TemperatureSource as TempSource
 from s_tui.Sources.RaplPowerSource import RaplPowerSource as RaplPowerSource
+from s_tui.Sources.MemorySource import MemorySource as MemorySource
 from s_tui.Sources.FanSource import FanSource as FanSource
 from s_tui.GlobalData import GlobalData
 from s_tui.Sources.ScriptHookLoader import ScriptHookLoader
@@ -499,7 +500,7 @@ class GraphView(urwid.WidgetPlaceholder):
         fixed_stats = []
         for key, val in self.available_summaries.items():
             fixed_stats += val.get_text_item_list()
-
+    
         return fixed_stats
 
     def main_window(self):
@@ -509,7 +510,9 @@ class GraphView(urwid.WidgetPlaceholder):
 
         # TODO: Update to find sensors automatically
 
+        '''
         freq_source = FreqSource(is_admin)
+
         self.graphs[freq_source.get_source_name()] = StuiBarGraph(
             freq_source, 'freq light', 'freq dark',
             'freq light smooth', 'freq dark smooth'
@@ -518,8 +521,10 @@ class GraphView(urwid.WidgetPlaceholder):
         self.summaries[freq_source.get_source_name()] = SummaryTextList(
             freq_source
         )
-
+        '''
+        
         util_source = UtilSource()
+        
         self.graphs[util_source.get_source_name()] = StuiBarGraph(
             util_source, 'util light', 'util dark',
             'util light smooth', 'util dark smooth'
@@ -552,18 +557,18 @@ class GraphView(urwid.WidgetPlaceholder):
         self.summaries[temp_source.get_source_name()] = SummaryTextList(
             temp_source, 'high temp txt')
 
-        rapl_power_source = RaplPowerSource()
+        mem_source = MemorySource()
 
-        self.graphs[rapl_power_source.get_source_name()] = StuiBarGraph(
-            rapl_power_source, 'power dark', 'power light',
+        self.graphs[mem_source.get_source_name()] = StuiBarGraph(
+            mem_source, 'power dark', 'power light',
             'power dark smooth', 'power light smooth')
 
-        self.summaries[rapl_power_source.get_source_name()] = SummaryTextList(
-            rapl_power_source)
+        self.summaries[mem_source.get_source_name()] = SummaryTextList(
+            mem_source)
 
-        fan_source = FanSource(self.controller.args.custom_fan)
-        self.summaries[fan_source.get_source_name()] = SummaryTextList(
-            fan_source)
+        #fan_source = FanSource(self.controller.args.custom_fan)
+        #self.summaries[fan_source.get_source_name()] = SummaryTextList(
+        #    fan_source)
 
         # only interested in available graph
         self.available_graphs = OrderedDict(

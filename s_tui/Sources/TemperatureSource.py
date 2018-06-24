@@ -193,10 +193,7 @@ class TemperatureSource(Source):
         return self.max_temp > self.temp_thresh
 
     def get_summary(self):
-        return {'Cur Temp': '%.1f %s' %
-                (self.last_temp, self.get_measurement_unit()),
-                'Max Temp': '%.1f %s' %
-                (self.max_temp, self.get_measurement_unit())}
+        return {'Temperature': '%.1f %s' % (self.last_temp, self.get_measurement_unit())}
 
     def get_source_name(self):
         return 'Temperature'

@@ -1,7 +1,7 @@
 The Stress Terminal UI: s-tui
 =============================
 
-|Build Status| |PyPI version| |Downloads|
+|Build Status| |PyPI version| |Downloads| |Gitter|
 
 .. figure:: https://github.com/amanusk/s-tui/blob/master/ScreenShots/stui_logo.png?raw=true
    :alt: 
@@ -334,3 +334,5 @@ ETH: ``0xc169699A825066f2F07E0b29C4082094b32A3F3e``
    :target: https://badge.fury.io/py/s-tui
 .. |Downloads| image:: http://pepy.tech/badge/s-tui
    :target: http://pepy.tech/count/s-tui
+.. |Gitter| image:: https://badges.gitter.im/Join%20Chat.svg
+   :target: https://gitter.im/s-tui/Lobby

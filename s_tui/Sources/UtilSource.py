@@ -56,11 +56,11 @@ class UtilSource(Source):
         return True
 
     def get_summary(self):
-        return {'Utilization': '%.1f %s' %
+        return {'CPU': '%.1f %s' %
                 (self.last_freq, self.get_measurement_unit())}
 
     def get_source_name(self):
-        return 'Utilization'
+        return 'CPU'
 
     def get_measurement_unit(self):
         return '%'
